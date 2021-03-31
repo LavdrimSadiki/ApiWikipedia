@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Input} from '@angular/core';
 
 @Component({
   selector: 'app-pagelist',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pagelist.component.css']
 })
 export class PagelistComponent implements OnInit {
+  @Input() pages = [];
 
   constructor() { }
 

@@ -7,13 +7,13 @@ import { WikipediaService } from './wikipedia.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
+pages = [];
 constructor(private  wiki: WikipediaService) {
 }
   // tslint:disable-next-line:typedef
   onTerm(term: string) {
-  this.wiki.search(term).subscribe(response => {
-    console.log(response);
+  this.wiki.search(term).subscribe((response: any) => {
+     this.pages = response.query.search;
   });
   }
 }
