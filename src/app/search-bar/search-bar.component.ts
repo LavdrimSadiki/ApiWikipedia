@@ -13,7 +13,6 @@ export class SearchBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // tslint:disable-next-line:typedef
   onFormSubmit(event: any){
     event.preventDefault();
     this.submitted.emit(this.term);

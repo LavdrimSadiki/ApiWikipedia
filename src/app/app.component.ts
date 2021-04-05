@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { WikipediaService } from './wikipedia.service';
+import {Component} from '@angular/core';
+import {WikipediaService} from './wikipedia.service';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -7,13 +8,16 @@ import { WikipediaService } from './wikipedia.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-pages = [];
-constructor(private  wiki: WikipediaService) {
-}
-  // tslint:disable-next-line:typedef
-  onTerm(term: string) {
-  this.wiki.search(term).subscribe((response: any) => {
-     this.pages = response.query.search;
-  });
+  pages = [];
+
+  constructor(private  wiki: WikipediaService) {
+  }
+
+  formSubmitted(searchTerm: string) {
+    this.wiki.search(searchTerm)
+      .subscribe((response: any) => {
+        this.pages = response.query.search;
+      });
+
   }
 }
